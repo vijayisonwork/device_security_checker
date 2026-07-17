@@ -9,6 +9,10 @@ void main() async {
 
   await DeviceSecurityChecker.initialize();
 
+  final report = await DeviceSecurityChecker.scan();
+
+  print('report: ${report}');
+
   runApp(const MyApp());
 }
 
