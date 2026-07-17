@@ -2,18 +2,30 @@ import Flutter
 import UIKit
 
 public class DeviceSecurityCheckerPlugin: NSObject, FlutterPlugin {
-  public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "device_security_checker", binaryMessenger: registrar.messenger())
-    let instance = DeviceSecurityCheckerPlugin()
-    registrar.addMethodCallDelegate(instance, channel: channel)
-  }
 
-  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    switch call.method {
-    case "getPlatformVersion":
-      result("iOS " + UIDevice.current.systemVersion)
-    default:
-      result(FlutterMethodNotImplemented)
+    private var dispatcher: SecurityDispatcher!
+
+    public static func register(with registrar: FlutterPluginRegistrar) {
+
+        let channel = FlutterMethodChannel(
+            name: Constants.channel,
+            binaryMessenger: registrar.messenger()
+        )
+
+        let instance = DeviceSecurityCheckerPlugin()
+
+        instance.dispatcher = SecurityDispatcher()
+
+        registrar.addMethodCallDelegate(instance, channel: channel)
     }
-  }
+
+    public func handle(
+        _ call: FlutterMethodCall,
+        result: @escaping FlutterResult
+    ) {
+
+        dispatcher.handle(call, result: result)
+
+    }
+
 }
