@@ -1,8 +1,12 @@
+library device_security_checker;
 
-import 'device_security_checker_platform_interface.dart';
+export 'src/device_security_checker.dart';
 
-class DeviceSecurityChecker {
-  Future<String?> getPlatformVersion() {
-    return DeviceSecurityCheckerPlatform.instance.getPlatformVersion();
-  }
-}
+// Core
+export 'src/core/security_config.dart';
+
+// Models
+// export 'src/models/security_report.dart';
+// export 'src/models/security_level.dart';
+// export 'src/models/security_status.dart';
+// export 'src/models/security_event.dart';

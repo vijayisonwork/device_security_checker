@@ -1,7 +1,14 @@
 name: device_security_checker
 description: "Device Security Checker is a Flutter Plugin Project for checking the device security status."
-version: 0.0.1
+version: 1.0.0
 homepage:
+
+topics:
+  - flutter
+  - android
+  - ios
+  - security
+  - device
 
 environment:
   sdk: ^3.7.2
@@ -38,7 +45,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.vs_plugin.device_security_checker.device_security_checker
+        package: com.vs_plugin.device_security_checker
         pluginClass: DeviceSecurityCheckerPlugin
       ios:
         pluginClass: DeviceSecurityCheckerPlugin
