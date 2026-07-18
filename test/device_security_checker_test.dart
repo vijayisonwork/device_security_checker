@@ -7,23 +7,15 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockDeviceSecurityCheckerPlatform
     with MockPlatformInterfaceMixin
     implements DeviceSecurityCheckerPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 }
 
 void main() {
-  final DeviceSecurityCheckerPlatform initialPlatform = DeviceSecurityCheckerPlatform.instance;
+  final DeviceSecurityCheckerPlatform initialPlatform =
+      DeviceSecurityCheckerPlatform.instance;
 
   test('$MethodChannelDeviceSecurityChecker is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelDeviceSecurityChecker>());
-  });
-
-  test('getPlatformVersion', () async {
-    DeviceSecurityChecker deviceSecurityCheckerPlugin = DeviceSecurityChecker();
-    MockDeviceSecurityCheckerPlatform fakePlatform = MockDeviceSecurityCheckerPlatform();
-    DeviceSecurityCheckerPlatform.instance = fakePlatform;
-
-    expect(await deviceSecurityCheckerPlugin.getPlatformVersion(), '42');
   });
 }

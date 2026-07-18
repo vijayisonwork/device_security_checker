@@ -2,7 +2,5 @@
 class SecurityConfig {
   final bool enableLogging;
 
-  const SecurityConfig({
-    this.enableLogging = false,
-  });
+  const SecurityConfig({this.enableLogging = false});
 }

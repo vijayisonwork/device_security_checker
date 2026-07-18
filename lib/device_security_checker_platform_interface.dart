@@ -8,7 +8,8 @@ abstract class DeviceSecurityCheckerPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static DeviceSecurityCheckerPlatform _instance = MethodChannelDeviceSecurityChecker();
+  static DeviceSecurityCheckerPlatform _instance =
+      MethodChannelDeviceSecurityChecker();
 
   /// The default instance of [DeviceSecurityCheckerPlatform] to use.
   ///
