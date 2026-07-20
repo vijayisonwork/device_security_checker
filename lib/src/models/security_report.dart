@@ -12,6 +12,9 @@ class SecurityReport {
   /// Android Emulator / iOS Simulator
   final bool virtualDevice;
 
+  /// Device Routed
+  final bool rooted;
+
   /// Android Root / iOS Jailbreak
   final bool deviceCompromised;
 
@@ -20,6 +23,7 @@ class SecurityReport {
     required this.usbDebugging,
     required this.debuggerAttached,
     required this.virtualDevice,
+    required this.rooted,
     required this.deviceCompromised,
   });
 
@@ -29,6 +33,7 @@ class SecurityReport {
       usbDebugging: map[ReportKeys.usbDebugging],
       debuggerAttached: map[ReportKeys.debuggerAttached] ?? false,
       virtualDevice: map[ReportKeys.virtualDevice] ?? false,
+      rooted: map[ReportKeys.rooted] ?? false,
       deviceCompromised: map[ReportKeys.deviceCompromised] ?? false,
     );
   }
@@ -41,6 +46,7 @@ SecurityReport(
   usbDebugging: $usbDebugging,
   debuggerAttached: $debuggerAttached,
   virtualDevice: $virtualDevice,
+  rooted: $rooted,
   deviceCompromised: $deviceCompromised,
 )
 ''';
