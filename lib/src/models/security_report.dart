@@ -32,4 +32,17 @@ class SecurityReport {
       deviceCompromised: map[ReportKeys.deviceCompromised] ?? false,
     );
   }
+
+  @override
+  String toString() {
+    return '''
+SecurityReport(
+  developerMode: $developerMode,
+  usbDebugging: $usbDebugging,
+  debuggerAttached: $debuggerAttached,
+  virtualDevice: $virtualDevice,
+  deviceCompromised: $deviceCompromised,
+)
+''';
+  }
 }
