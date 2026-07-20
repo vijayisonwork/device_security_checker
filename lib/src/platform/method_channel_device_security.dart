@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 
+import '../../device_security_checker.dart';
 import '../constants/channel_constants.dart';
 import '../constants/method_constants.dart';
 
@@ -12,8 +13,8 @@ class MethodChannelDeviceSecurity {
     await _channel.invokeMethod(MethodConstants.initialize);
   }
 
-  static Future<Map<dynamic, dynamic>> scanDevice() async {
+  static Future<SecurityReport> scanDevice() async {
     final result = await _channel.invokeMethod(MethodConstants.scanDevice);
-    return result as Map<dynamic, dynamic>;
+    return SecurityReport.fromMap(result ?? {});
   }
 }

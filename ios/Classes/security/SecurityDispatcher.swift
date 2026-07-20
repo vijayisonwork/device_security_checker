@@ -5,7 +5,7 @@ final class SecurityDispatcher {
     private let scanner = SecurityScanner()
 
     func handle(
-        _ call: FlutterMethodCall,
+        call: FlutterMethodCall,
         result: @escaping FlutterResult
     ) {
 
@@ -19,9 +19,6 @@ final class SecurityDispatcher {
 
         default:
             result(FlutterMethodNotImplemented)
-
         }
-
     }
-
 }

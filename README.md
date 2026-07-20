@@ -1,35 +1,92 @@
 # Device Security Checker
 
-One-line description
+A Flutter plugin for detecting device security risks such as Developer Mode, USB Debugging, virtual
+devices, and other security indicators.
 
-----------------------------------
+## ✨ Features
 
-Features
+- ✅ Detect Developer Mode
+- ✅ Detect USB Debugging (Android)
+- ✅ Detect Virtual Devices (Emulator / Simulator)
+- 🚧 Root Detection
+- 🚧 Jailbreak Detection
+- 🚧 Debugger Detection
+- 🚧 Frida Detection
+- 🚧 Play Integrity
 
-----------------------------------
+## 📱 Platform Support
 
-Screenshots
+| Feature            | Android | iOS |
+|--------------------|:-------:|:---:|
+| Developer Mode     |    ✅    | 🚧  |
+| USB Debugging      |    ✅    | N/A |
+| Virtual Device     |    ✅    |  ✅  |
+| Root Detection     |   🚧    | 🚧  |
+| Debugger Detection |   🚧    | 🚧  |
 
-----------------------------------
+## 📦 Installation
 
-Installation
+```yaml
+dependencies:
+  device_security_checker: ^1.0.0
+```
 
-----------------------------------
+Run:
 
-Usage
+```bash
+flutter pub get
+```
 
-----------------------------------
+## 🚀 Usage
 
-Platform Support
+## dart
 
-----------------------------------
+## final report = await DeviceSecurityChecker.scanDevice();
 
-Roadmap
+## print(report.developerMode);
 
-----------------------------------
+## print(report.usbDebugging);
 
-Contributing
+## print(report.virtualDevice);
 
-----------------------------------
+## 📊 Example Output
 
-License
+```text
+SecurityReport(
+  developerMode: false,
+  usbDebugging: false,
+  virtualDevice: false,
+  deviceCompromised: false,
+  debuggerAttached: false,
+)
+```
+
+## 📸 Screenshots
+
+### Security Dashboard
+
+![Overview](screenshots/overview.jpeg)
+
+### Scan Result
+
+![Scan Result](screenshots/scan_result.jpeg)
+
+## 🛣 Roadmap
+
+- [x] Developer Mode Detection
+- [x] USB Debugging Detection
+- [x] Virtual Device Detection
+- [ ] Root Detection
+- [ ] Jailbreak Detection
+- [ ] Debugger Detection
+- [ ] Frida Detection
+- [ ] Magisk Detection
+- [ ] Play Integrity Support
+
+## 🤝 Contributing
+
+Contributions, bug reports, and feature requests are welcome.
+
+## 📄 License
+
+This project is licensed under the MIT License.
