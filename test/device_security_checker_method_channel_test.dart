@@ -5,20 +5,20 @@ import 'package:device_security_checker/device_security_checker_method_channel.d
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelDeviceSecurityChecker platform = MethodChannelDeviceSecurityChecker();
+  MethodChannelDeviceSecurityChecker platform =
+      MethodChannelDeviceSecurityChecker();
   const MethodChannel channel = MethodChannel('device_security_checker');
 
   setUp(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        return '42';
-      },
-    );
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+          return '42';
+        });
   });
 
   tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null);
   });
 
   test('getPlatformVersion', () async {
