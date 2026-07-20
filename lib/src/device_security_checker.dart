@@ -31,7 +31,7 @@ class DeviceSecurityChecker {
     _initialized = true;
   }
 
-  static Future<Map<dynamic, dynamic>> scan() async {
+  static Future<SecurityReport> scan() async {
     if (!_initialized) {
       throw Exception("SDK not initialized");
     }
