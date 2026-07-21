@@ -6,5 +6,6 @@ class ReportKeys {
   static const debuggerAttached = "debuggerAttached";
   static const virtualDevice = "virtualDevice";
   static const rooted = "rooted";
+  static const jailBroken = "jailBroken";
   static const deviceCompromised = "deviceCompromised";
 }
