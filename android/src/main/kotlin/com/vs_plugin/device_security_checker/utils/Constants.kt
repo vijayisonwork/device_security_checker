@@ -11,5 +11,6 @@ object Constants {
     const val KEY_USB_DEBUGGING = "usbDebugging"
     const val KEY_DEBUGGER_ATTACHED = "debuggerAttached"
     const val KEY_VIRTUAL_DEVICE = "virtualDevice"
+    const val KEY_ROOTED = "rooted"
     const val KEY_DEVICE_COMPROMISED = "deviceCompromised"
 }
