@@ -64,13 +64,29 @@ SecurityReport(
 
 ## 📸 Screenshots
 
-### Security Dashboard
+### Developer Mode
 
-![Overview](screenshots/overview.jpeg)
+![developer_mode](screenshots/developer_mode.jpeg)
 
-### Scan Result
+### USB Debugging
 
-![Scan Result](screenshots/scan_result.jpeg)
+![usb_debugging](screenshots/usb_debugging.jpeg)
+
+### Debugger Attached
+
+![debugger_attached](screenshots/debugger_attached.jpeg)
+
+### Virtual Device
+
+![virtual_device](screenshots/virtual_device.jpeg)
+
+### Device Compromised
+
+![device_compromised](screenshots/device_compromised.jpeg)
+
+### Device Secure
+
+![device_secure](screenshots/device_secure.jpeg)
 
 ## 🛣 Roadmap
 

@@ -37,3 +37,22 @@ flutter:
         pluginClass: DeviceSecurityCheckerPlugin
       ios:
         pluginClass: DeviceSecurityCheckerPlugin
+
+screenshots:
+  - description: Developer Mode
+    path: screenshots/developer_mode.jpeg
+
+  - description: USB Debugging
+    path: screenshots/usb_debugging.jpeg
+
+  - description: Debugger Attached
+    path: screenshots/debugger_attached.jpeg
+
+  - description: Virtual Device
+    path: screenshots/virtual_device.jpeg
+
+  - description: Device Compromised
+    path: screenshots/device_compromised.jpeg
+
+  - description: Device Secure
+    path: screenshots/device_secure.jpeg
