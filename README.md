@@ -8,28 +8,27 @@ devices, Rooted and other security indicators.
 - ✅ Detect Developer Mode
 - ✅ Detect USB Debugging (Android)
 - ✅ Detect Virtual Devices (Emulator / Simulator)
-- ✅ Developer Mode Detection
 - ✅ Root Detection (Android)
+- ✅ Debugger Detection
 - 🚧 Jailbreak Detection
-- 🚧 Debugger Detection
 - 🚧 Frida Detection
 - 🚧 Play Integrity
 
 ## 📱 Platform Support
 
 | Feature            | Android | iOS |
-|--------------------|:-------:|:---:|
-| Developer Mode     |    ✅    | 🚧  |
+|--------------------|:-------:|:--:|
+| Developer Mode     |    ✅    | N/A |
 | USB Debugging      |    ✅    | N/A |
-| Virtual Device     |    ✅    |  ✅  |
-| Root Detection     |    ✅    | 🚧  |
-| Debugger Detection |    🚧   | 🚧  |
+| Virtual Device     |    ✅    |  ✅ |
+| Root Detection     |    ✅    | N/A |
+| Debugger Detection |    ✅    |  ✅ |
 
 ## 📦 Installation
 
 ```yaml
 dependencies:
-  device_security_checker: ^1.1.1
+  device_security_checker: ^1.1.4
 ```
 
 Run:
@@ -40,14 +39,23 @@ flutter pub get
 
 ## 🚀 Usage
 
-## dart
+```dart
+import 'package:device_security_checker/device_security_checker.dart';
 
-## final report = await DeviceSecurityChecker.scanDevice();
+Future<void> main() async {
+  await DeviceSecurityChecker.initialize();
 
-## print(report.developerMode);
-## print(report.usbDebugging);
-## print(report.rooted);
-## print(report.virtualDevice);
+  await SecurityService.instance.scan();
+
+  final report = SecurityService.instance.report;
+
+  print(report.developerMode);
+  print(report.usbDebugging);
+  print(report.virtualDevice);
+  print(report.rooted);
+  print(report.debuggerAttached);
+}
+```
 
 ## 📊 Example Output
 
@@ -57,32 +65,34 @@ SecurityReport(
   usbDebugging: false,
   virtualDevice: false,
   rooted: false,
-  deviceCompromised: false,
   debuggerAttached: false,
+  deviceCompromised: false,
 )
 ```
 
 ## 📸 Screenshots
 
-### Security Dashboard
+| Device Secure | Developer Mode | USB Debugging |
+|---------------|----------------|---------------|
+| ![Device Secure](screenshots/device_secure.jpeg) | ![Developer Mode](screenshots/developer_mode.jpeg) | ![USB Debugging](screenshots/usb_debugging.jpeg) |
 
-![Overview](screenshots/overview.jpeg)
-
-### Scan Result
-
-![Scan Result](screenshots/scan_result.jpeg)
+| Debugger Attached | Virtual Device | Device Compromised |
+|-------------------|----------------|--------------------|
+| ![Debugger Attached](screenshots/debugger_attached.jpeg) | ![Virtual Device](screenshots/virtual_device.jpeg) | ![Device Compromised](screenshots/device_compromised.jpeg) |
 
 ## 🛣 Roadmap
 
-- [x] Developer Mode Detection
-- [x] USB Debugging Detection
-- [x] Virtual Device Detection
-- [x] Root Detection
-- [ ] Jailbreak Detection
-- [ ] Debugger Detection
-- [ ] Frida Detection
-- [ ] Magisk Detection
-- [ ] Play Integrity Support
+- [x] Developer Mode Detection (Android)
+- [x] USB Debugging Detection (Android)
+- [x] Virtual Device Detection (both)
+- [x] Root Detection (Android)
+- [x] Debugger Detection (both)
+
+### Planned
+
+- [ ] Jailbreak Detection (iOS)
+- [ ] Frida Detection (both)
+- [ ] Play Integrity API (Android)
 
 ## 🤝 Contributing
 

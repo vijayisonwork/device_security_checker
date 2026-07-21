@@ -34,26 +34,19 @@ class RootChecker(
             reasons.add(RootDetectionType.TEST_KEYS)
         }
 
-        return reasons
-    }
-
-    private fun checkSuBinary(): Boolean {
-
-        val paths = arrayOf(
-            "/system/bin/su",
-            "/system/xbin/su",
-            "/sbin/su",
-            "/system/sd/xbin/su",
-            "/system/bin/failsafe/su",
-            "/data/local/xbin/su",
-            "/data/local/bin/su",
-            "/data/local/su",
-            "/vendor/bin/su"
-        )
-
-        return paths.any { path ->
-            java.io.File(path).exists()
+        if (checkBusyBox()) {
+            reasons.add(RootDetectionType.BUSYBOX)
         }
+
+        if (checkWhichSu()) {
+            reasons.add(RootDetectionType.WHICH_SU)
+        }
+
+        if (checkMagiskApp()) {
+            reasons.add(RootDetectionType.MAGISK_APP)
+        }
+
+        return reasons
     }
 
     private fun checkRootApps(): Boolean {
@@ -79,26 +72,87 @@ class RootChecker(
         }
     }
 
-    private fun checkDangerousPaths(): Boolean {
-
-        val paths = arrayOf(
-            "/system/app/Superuser.apk",
-            "/system/etc/init.d",
-            "/system/bin/.ext",
-            "/system/xbin/daemonsu",
-            "/su/bin",
-            "/system/usr/we-need-root",
-            "/cache/su",
-            "/data/su",
-            "/dev/com.koushikdutta.superuser.daemon"
-        )
-
-        return paths.any { path ->
-            File(path).exists()
-        }
-    }
-
     private fun checkTestKeys(): Boolean {
         return Build.TAGS?.contains("test-keys") == true
     }
+
+    private fun checkBusyBox(): Boolean {
+        val paths = arrayOf(
+            "/system/bin/busybox",
+            "/system/xbin/busybox",
+            "/sbin/busybox"
+        )
+
+        return paths.any { File(it).exists() }
+    }
+
+    private fun checkWhichSu(): Boolean {
+        return try {
+            val process = Runtime.getRuntime().exec("which su")
+            process.inputStream.bufferedReader().use { reader ->
+                reader.readLine()?.isNotBlank() == true
+            }
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    private fun checkMagiskApp(): Boolean {
+        val packages = listOf(
+            "com.topjohnwu.magisk",
+            "io.github.vvb2060.magisk"
+        )
+
+        return packages.any { packageName ->
+            try {
+                context.packageManager.getPackageInfo(packageName, 0)
+                true
+            } catch (_: Exception) {
+                false
+            }
+        }
+    }
+
+    private val suBinaryPaths = listOf(
+        "/system/bin/su",
+        "/system/xbin/su",
+        "/sbin/su",
+        "/system/sd/xbin/su",
+        "/system/bin/failsafe/su",
+        "/data/local/xbin/su",
+        "/data/local/bin/su",
+        "/data/local/su",
+        "/vendor/bin/su"
+    )
+
+    private val dangerousPaths = listOf(
+        "/system/app/Superuser.apk",
+        "/system/etc/init.d",
+        "/system/bin/.ext",
+        "/system/xbin/daemonsu",
+        "/su/bin",
+        "/system/usr/we-need-root",
+        "/cache/su",
+        "/data/su",
+        "/dev/com.koushikdutta.superuser.daemon"
+    )
+
+    private val magiskPaths = listOf(
+        "/sbin/magisk",
+        "/data/adb/magisk",
+        "/cache/magisk.log",
+        "/init.magisk.rc"
+    )
+
+    private fun fileExists(paths: List<String>): Boolean =
+        paths.any { File(it).exists() }
+
+    private fun fileExists(paths: List<String>): Boolean =
+        paths.any { File(it).exists() }
+
+    private fun checkSuBinary() = fileExists(suBinaryPaths)
+
+    private fun checkDangerousPaths() = fileExists(dangerousPaths)
+
+    private fun checkMagiskFiles() = fileExists(magiskPaths)
 }
