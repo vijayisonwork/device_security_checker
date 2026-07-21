@@ -1,7 +1,7 @@
 import '../constants/report_keys.dart';
 
 class SecurityReport {
-  final bool developerMode;
+  final bool? developerMode;
 
   /// Android only.
   final bool? usbDebugging;
@@ -29,7 +29,7 @@ class SecurityReport {
 
   factory SecurityReport.fromMap(Map<dynamic, dynamic> map) {
     return SecurityReport(
-      developerMode: map[ReportKeys.developerMode] ?? false,
+      developerMode: map[ReportKeys.developerMode],
       usbDebugging: map[ReportKeys.usbDebugging],
       debuggerAttached: map[ReportKeys.debuggerAttached] ?? false,
       virtualDevice: map[ReportKeys.virtualDevice] ?? false,

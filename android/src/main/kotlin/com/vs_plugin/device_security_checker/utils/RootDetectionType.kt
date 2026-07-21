@@ -4,5 +4,9 @@ enum class RootDetectionType {
     SU_BINARY,
     ROOT_APP,
     DANGEROUS_PATH,
-    TEST_KEYS
+    TEST_KEYS,
+    BUSYBOX,
+    WHICH_SU,
+    MAGISK_APP,
+    MAGISK_FILES
 }

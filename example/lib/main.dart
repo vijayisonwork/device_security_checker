@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
   bool get _isSecure {
     if (_report == null) return true;
 
-    return !_report!.developerMode &&
+    return !(_report!.developerMode ?? false) &&
         !(_report!.usbDebugging ?? false) &&
         !_report!.debuggerAttached &&
         !_report!.virtualDevice &&
@@ -147,8 +147,8 @@ class _HomePageState extends State<HomePage> {
             if (report != null) ...[
               _StatusTile(
                 title: "Developer Mode",
-                enabled: report.developerMode,
-                unsupported: false,
+                enabled: report.developerMode ?? false,
+                unsupported: report.developerMode == null,
               ),
 
               _StatusTile(
