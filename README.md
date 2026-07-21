@@ -29,7 +29,7 @@ devices, Rooted and other security indicators.
 
 ```yaml
 dependencies:
-  device_security_checker: ^1.1.1
+  device_security_checker: ^1.1.2
 ```
 
 Run:
