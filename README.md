@@ -64,29 +64,13 @@ SecurityReport(
 
 ## 📸 Screenshots
 
-### Developer Mode
+| Device Secure | Developer Mode | USB Debugging |
+|---------------|----------------|---------------|
+| ![Device Secure](screenshots/device_secure.jpeg) | ![Developer Mode](screenshots/developer_mode.jpeg) | ![USB Debugging](screenshots/usb_debugging.jpeg) |
 
-![developer_mode](screenshots/developer_mode.jpeg)
-
-### USB Debugging
-
-![usb_debugging](screenshots/usb_debugging.jpeg)
-
-### Debugger Attached
-
-![debugger_attached](screenshots/debugger_attached.jpeg)
-
-### Virtual Device
-
-![virtual_device](screenshots/virtual_device.jpeg)
-
-### Device Compromised
-
-![device_compromised](screenshots/device_compromised.jpeg)
-
-### Device Secure
-
-![device_secure](screenshots/device_secure.jpeg)
+| Debugger Attached | Virtual Device | Device Compromised |
+|-------------------|----------------|--------------------|
+| ![Debugger Attached](screenshots/debugger_attached.jpeg) | ![Virtual Device](screenshots/virtual_device.jpeg) | ![Device Compromised](screenshots/device_compromised.jpeg) |
 
 ## 🛣 Roadmap
 
