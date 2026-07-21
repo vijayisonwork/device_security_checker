@@ -11,5 +11,6 @@ struct Constants {
     static let keyUsbDebugging = "usbDebugging"
     static let keyDebuggerAttached = "debuggerAttached"
     static let keyVirtualDevice = "virtualDevice"
+    static let keyJailBroken = "jailBroken"
     static let keyDeviceCompromised = "deviceCompromised"
 }

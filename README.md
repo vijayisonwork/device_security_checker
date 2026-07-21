@@ -10,25 +10,26 @@ devices, Rooted and other security indicators.
 - ✅ Detect Virtual Devices (Emulator / Simulator)
 - ✅ Root Detection (Android)
 - ✅ Debugger Detection
-- 🚧 Jailbreak Detection
+- ✅ Jailbreak Detection
 - 🚧 Frida Detection
 - 🚧 Play Integrity
 
 ## 📱 Platform Support
 
-| Feature            | Android | iOS |
-|--------------------|:-------:|:--:|
-| Developer Mode     |    ✅    | N/A |
-| USB Debugging      |    ✅    | N/A |
-| Virtual Device     |    ✅    |  ✅ |
-| Root Detection     |    ✅    | N/A |
-| Debugger Detection |    ✅    |  ✅ |
+| Feature              | Android | iOS |
+|----------------------|:-------:|:---:|
+| Developer Mode       |    ✅    | N/A |
+| USB Debugging        |    ✅    | N/A |
+| Virtual Device       |    ✅    |  ✅  |
+| Root Detection       |    ✅    | N/A |
+| Debugger Detection   |    ✅    |  ✅  |
+| Jail Break Detection |    N/A  | ✅   |
 
 ## 📦 Installation
 
 ```yaml
 dependencies:
-  device_security_checker: ^1.1.4
+  device_security_checker: ^1.2.0
 ```
 
 Run:
@@ -53,6 +54,7 @@ Future<void> main() async {
   print(report.usbDebugging);
   print(report.virtualDevice);
   print(report.rooted);
+  print(report.jailBroken);
   print(report.debuggerAttached);
 }
 ```
@@ -65,6 +67,7 @@ SecurityReport(
   usbDebugging: false,
   virtualDevice: false,
   rooted: false,
+  jailBroken: false,
   debuggerAttached: false,
   deviceCompromised: false,
 )
@@ -87,10 +90,10 @@ SecurityReport(
 - [x] Virtual Device Detection (both)
 - [x] Root Detection (Android)
 - [x] Debugger Detection (both)
+- [x] Jailbreak Detection (iOS)
 
 ### Planned
 
-- [ ] Jailbreak Detection (iOS)
 - [ ] Frida Detection (both)
 - [ ] Play Integrity API (Android)
 

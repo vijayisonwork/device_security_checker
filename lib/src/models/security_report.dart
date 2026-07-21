@@ -12,8 +12,11 @@ class SecurityReport {
   /// Android Emulator / iOS Simulator
   final bool virtualDevice;
 
-  /// Device Routed
+  /// Device Routed Android
   final bool rooted;
+
+  /// Device Jail Broken iOS
+  final bool jailBroken;
 
   /// Android Root / iOS Jailbreak
   final bool deviceCompromised;
@@ -24,6 +27,7 @@ class SecurityReport {
     required this.debuggerAttached,
     required this.virtualDevice,
     required this.rooted,
+    required this.jailBroken,
     required this.deviceCompromised,
   });
 
@@ -34,6 +38,7 @@ class SecurityReport {
       debuggerAttached: map[ReportKeys.debuggerAttached] ?? false,
       virtualDevice: map[ReportKeys.virtualDevice] ?? false,
       rooted: map[ReportKeys.rooted] ?? false,
+      jailBroken: map[ReportKeys.jailBroken] ?? false,
       deviceCompromised: map[ReportKeys.deviceCompromised] ?? false,
     );
   }
@@ -47,6 +52,7 @@ SecurityReport(
   debuggerAttached: $debuggerAttached,
   virtualDevice: $virtualDevice,
   rooted: $rooted,
+  jailBroken: $jailBroken,
   deviceCompromised: $deviceCompromised,
 )
 ''';

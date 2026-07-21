@@ -2,7 +2,7 @@ name: device_security_checker
 
 description: A Flutter plugin for detecting common device security risks such as Developer Mode, USB Debugging, Emulator/Simulator, and more.
 
-version: 1.1.4
+version: 1.2.0
 
 homepage: https://github.com/vijayisonwork/device_security_checker
 repository: https://github.com/vijayisonwork/device_security_checker
