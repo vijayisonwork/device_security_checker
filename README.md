@@ -8,10 +8,9 @@ devices, Rooted and other security indicators.
 - ✅ Detect Developer Mode
 - ✅ Detect USB Debugging (Android)
 - ✅ Detect Virtual Devices (Emulator / Simulator)
-- ✅ Developer Mode Detection
+- ✅ Debugger Detection
 - ✅ Root Detection (Android)
 - 🚧 Jailbreak Detection
-- 🚧 Debugger Detection
 - 🚧 Frida Detection
 - 🚧 Play Integrity
 
@@ -22,14 +21,14 @@ devices, Rooted and other security indicators.
 | Developer Mode     |    ✅    | 🚧  |
 | USB Debugging      |    ✅    | N/A |
 | Virtual Device     |    ✅    |  ✅  |
-| Root Detection     |    ✅    | 🚧  |
-| Debugger Detection |    🚧   | 🚧  |
+| Debugger Detection |    ✅    | 🚧  |
+| Root Detection     |    ✅   | 🚧  |
 
 ## 📦 Installation
 
 ```yaml
 dependencies:
-  device_security_checker: ^1.1.2
+  device_security_checker: ^1.1.3
 ```
 
 Run:
@@ -77,9 +76,9 @@ SecurityReport(
 - [x] Developer Mode Detection
 - [x] USB Debugging Detection
 - [x] Virtual Device Detection
+- [x] Debugger Detection
 - [x] Root Detection
 - [ ] Jailbreak Detection
-- [ ] Debugger Detection
 - [ ] Frida Detection
 - [ ] Magisk Detection
 - [ ] Play Integrity Support

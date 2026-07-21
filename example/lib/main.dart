@@ -50,7 +50,9 @@ class _HomePageState extends State<HomePage> {
     });
 
     try {
-      final report = await DeviceSecurityChecker.scan();
+      await SecurityService.instance.scan();
+
+      final report = SecurityService.instance.report;
 
       setState(() {
         _report = report;
@@ -86,7 +88,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Device Security Checker"),
+        title: const Text("\nDevice Security Checker"),
         centerTitle: true,
       ),
       body: RefreshIndicator(
