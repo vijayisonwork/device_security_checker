@@ -2,10 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.1.0
+## 1.1.1
 
 ### Added
 
-- Android Root Detection
-- RootChecker implementation
-- Root status exposed in SecurityReport
+- Package version downgraded for more compatibility
